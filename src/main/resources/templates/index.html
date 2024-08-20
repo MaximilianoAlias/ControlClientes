@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Capa de Servicio</title>
+</head>
+<body>
+        <h1>Spring Data</h1><br>
+
+        <div th:if="${listaPersonas != null and !listaPersonas.isEmpty()}">
+        <table border="1">
+            <tr bgcolor="#7fffd4red">
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+            </tr>
+
+            <tr th:each="persona : ${listaPersonas}" bgcolor="#adff2f">
+                <td th:text="${persona.nombre}"></td>
+                <td th:text="${persona.apellido}"></td>
+                <td th:text="${persona.email}"></td>
+                <td th:text="${persona.telefono}"></td>
+            </tr>
+        </table>
+        </div>
+        <div th:if="${listaPersonas == null or listaPersonas.isEmpty()}">
+                <h1 th:text="${listaVacia}" bgcolor="RED"></h1>
+        </div>
+
+
+
+</body>
+</html>
